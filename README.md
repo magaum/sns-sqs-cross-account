@@ -8,7 +8,7 @@ O princípio "least privilege" foi seguido conforme boas práticas sugeridas pel
 
 Para executar os arquivos terraform é necessário renomear o arquivo `terraform.tfvars.example` para `terraform.tfvars`, os valores de `sns_account` e `sqs_account` também precisam ser alterados para duas contas distintas.
 
-Os módulos sqs e sns estão utilizando perfis diferentes para o provisionamento nas contas, o provionamento não será concluído com sucesso caso esses perfis não estejam criados no arquivo `.aws\credentials` da home do usuário.
+Os módulos sqs e sns estão utilizando perfis diferentes para o provisionamento nas contas, a execução não será concluída com sucesso caso esses perfis não estejam criados no arquivo `.aws\credentials` da home do usuário.
 
 Arquivo credentials de exemplo:
 
