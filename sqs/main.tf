@@ -1,17 +1,7 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.74.0"
-    }
-  }
-}
-
 provider "aws" {
   region  = "us-east-1"
-  profile = "account_1"
+  profile = "sqs_account"
 }
-
 
 resource "aws_sqs_queue" "dlq" {
   name = "cross-account-dlq"
@@ -68,7 +58,7 @@ resource "aws_sqs_queue_policy" "principal_policy" {
       "Resource": "${aws_sqs_queue.principal.arn}",
       "Condition":{
         "ArnEquals":{
-            "aws:SourceArn":"arn:aws:sns:us-east-1:${var.cross_account_id}:cross-account-sns"
+            "aws:SourceArn":"arn:aws:sns:us-east-1:${var.sns_account}:cross-account-sns"
         }
       }
     }
@@ -78,7 +68,7 @@ POLICY
 }
 
 resource "aws_sns_topic_subscription" "cross_account_subscribe" {
-  topic_arn = "arn:aws:sns:us-east-1:${var.cross_account_id}:cross-account-sns"
+  topic_arn = "arn:aws:sns:us-east-1:${var.sns_account}:cross-account-sns"
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.principal.arn
 }

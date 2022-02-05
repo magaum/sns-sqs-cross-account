@@ -1,15 +1,6 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.74.0"
-    }
-  }
-}
-
 provider "aws" {
   region = "us-east-1"
-  profile = "account_2"
+  profile = "sns_account"
 }
 
 resource "aws_sns_topic" "this" {
@@ -28,7 +19,7 @@ resource "aws_sns_topic_policy" "this" {
       "Sid": "AllowCrossAccountSubscription",
       "Effect": "Allow",
       "Principal": {
-          "AWS": "${var.cross_account_id}"
+          "AWS": "${var.sqs_account}"
       },
       "Action": "sns:Subscribe",
       "Resource": "${aws_sns_topic.this.arn}"

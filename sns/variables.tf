@@ -1,4 +1,4 @@
-variable "cross_account_id" {
+variable "sqs_account" {
   type        = string
-  description = "Account that will send messages to sqs"
+  description = "SQS account"
 }
