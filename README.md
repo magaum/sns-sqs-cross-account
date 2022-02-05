@@ -28,7 +28,7 @@ aws_secret_access_key = sns_account_secret_access_key
 
 Links para leitura:
 
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-https://docs.aws.amazon.com/sns/latest/dg/sns-send-message-to-sqs-cross-account.html
-https://docs.aws.amazon.com/sns/latest/dg/subscribe-sqs-queue-to-sns-topic.html#SendMessageToSQS.sqs.permissions
-https://aws.amazon.com/blogs/compute/encrypting-messages-published-to-amazon-sns-with-aws-kms/
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+- https://docs.aws.amazon.com/sns/latest/dg/sns-send-message-to-sqs-cross-account.html
+- https://docs.aws.amazon.com/sns/latest/dg/subscribe-sqs-queue-to-sns-topic.html#SendMessageToSQS.sqs.permissions
+- https://aws.amazon.com/blogs/compute/encrypting-messages-published-to-amazon-sns-with-aws-kms/
